@@ -1,0 +1,108 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  direction: rtl;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-control-zoom {
+  margin-bottom: 40px !important;
+}
+
+/* RTL fixes for Leaflet controls */
+.leaflet-control-container .leaflet-top,
+.leaflet-control-container .leaflet-bottom {
+  right: 0;
+  left: auto;
+}
+
+.leaflet-control-container .leaflet-top.leaflet-left,
+.leaflet-control-container .leaflet-bottom.leaflet-left {
+  right: auto;
+  left: 0;
+}
+
+.leaflet-draw-toolbar {
+  margin-right: 0 !important;
+  margin-left: 10px !important;
+}
+
+/* Custom styles for the GeoJSON upload button */
+.leaflet-control-upload,
+.leaflet-control-search,
+.custom-layers-button {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.leaflet-control-upload:hover,
+.leaflet-control-search:hover,
+.custom-layers-button:hover {
+  background-color: #f4f4f4;
+}
+
+.leaflet-right .leaflet-draw-toolbar {
+  margin-top: 120px;
+}
+
+.leaflet-right .leaflet-draw-toolbar + .leaflet-control {
+  margin-top: 10px;
+}
+
+/* Ensure the upload and search buttons are visible */
+.leaflet-control-upload svg,
+.leaflet-control-search svg,
+.custom-layers-button svg {
+  display: block;
+  margin: auto;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 640px) {
+  .leaflet-control-zoom {
+    margin-bottom: 60px !important;
+  }
+
+  .leaflet-right .leaflet-draw-toolbar {
+    margin-top: 140px;
+  }
+
+  .leaflet-touch .leaflet-control-layers,
+  .leaflet-touch .leaflet-bar {
+    border: 2px solid rgba(0,0,0,0.2);
+    background-clip: padding-box;
+  }
+
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out {
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    font-size: 22px !important;
+  }
+
+  .leaflet-draw-toolbar a {
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+  }
+
+  .leaflet-draw-toolbar a .leaflet-draw-tooltip {
+    margin-top: -10px;
+  }
+}
